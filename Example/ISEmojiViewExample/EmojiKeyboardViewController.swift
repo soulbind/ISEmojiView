@@ -30,6 +30,7 @@ class EmojiKeyboardViewController: UIViewController, EmojiViewDelegate {
         }
         
         let keyboardSettings = KeyboardSettings(bottomType: bottomType)
+        keyboardSettings.needToShowAbcButton = true
         keyboardSettings.customEmojis = emojis
         keyboardSettings.countOfRecentsEmojis = 20
         keyboardSettings.updateRecentEmojiImmediately = true

@@ -190,6 +190,10 @@ extension EmojiView: PageControlBottomViewDelegate {
     func pageControlBottomViewDidPressDismissKeyboardButton(_ bottomView: PageControlBottomView) {
         delegate?.emojiViewDidPressDismissKeyboardButton(self)
     }
+
+    func pageControlBottomViewDidPressChangeKeyboardButton(_ bottomView: PageControlBottomView) {
+      delegate?.emojiViewDidPressChangeKeyboardButton(self)
+    }
     
 }
 
@@ -262,7 +266,8 @@ extension EmojiView {
           let needToShowDeleteButton = keyboardSettings?.needToShowDeleteButton ?? true
           let bottomView = PageControlBottomView.loadFromNib(
               categoriesCount: categories.count,
-              needToShowDeleteButton: needToShowDeleteButton
+              needToShowDeleteButton: needToShowDeleteButton,
+              needToShowChangeKeyboardButton: keyboardSettings?.needToShowAbcButton ?? self.needToShowAbcButton
             )
             bottomView.delegate = self
             self.pageControlBottomView = bottomView

@@ -12,7 +12,8 @@ internal protocol PageControlBottomViewDelegate: AnyObject {
     
     func pageControlBottomViewDidPressDeleteBackwardButton(_ bottomView: PageControlBottomView)
     func pageControlBottomViewDidPressDismissKeyboardButton(_ bottomView: PageControlBottomView)
-    
+    func pageControlBottomViewDidPressChangeKeyboardButton(_ bottomView: PageControlBottomView)
+
 }
 
 final internal class PageControlBottomView: UIView {
@@ -27,9 +28,11 @@ final internal class PageControlBottomView: UIView {
 
     @IBOutlet private weak var deleteButton: UIButton!
 
+    @IBOutlet private weak var keyboardButton: UIButton!
+
     // MARK: - Init functions
     
-    static func loadFromNib(categoriesCount: Int, needToShowDeleteButton: Bool) -> PageControlBottomView {
+    static func loadFromNib(categoriesCount: Int, needToShowDeleteButton: Bool, needToShowChangeKeyboardButton: Bool) -> PageControlBottomView {
         let nibName = String(describing: PageControlBottomView.self)
         
         guard let nib = Bundle.podBundle.loadNibNamed(nibName, owner: nil, options: nil) as? [PageControlBottomView] else {
@@ -42,6 +45,7 @@ final internal class PageControlBottomView: UIView {
         
         bottomView.pageControl.numberOfPages = categoriesCount
         bottomView.deleteButton.isHidden = !needToShowDeleteButton
+        bottomView.keyboardButton.isHidden = !needToShowChangeKeyboardButton
         return bottomView
     }
     
@@ -59,6 +63,10 @@ final internal class PageControlBottomView: UIView {
     
     @IBAction private func dismissKeyboard() {
         delegate?.pageControlBottomViewDidPressDismissKeyboardButton(self)
+    }
+
+    @IBAction private func changeKeyboard() {
+      delegate?.pageControlBottomViewDidPressChangeKeyboardButton(self)
     }
     
 }

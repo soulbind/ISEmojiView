@@ -13,14 +13,19 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOC-kz-e84">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOC-kz-e84">
                     <rect key="frame" x="12" y="0.0" width="40" height="44"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="F7t-Dr-hnG"/>
                     </constraints>
-                    <state key="normal">
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
+                    <state key="normal" image="keyboard" catalog="system">
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="changeKeyboard" destination="-2" eventType="touchUpInside" id="ovh-Me-8WP"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNK-Po-ZiY">
                     <rect key="frame" x="323" y="0.0" width="40" height="44"/>
@@ -59,6 +64,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="deleteButton" destination="VNK-Po-ZiY" id="EJb-0x-g8k"/>
+                <outlet property="keyboardButton" destination="eOC-kz-e84" id="JEa-62-6hW"/>
                 <outlet property="pageControl" destination="p4b-NF-Peo" id="JB7-Ef-Hxa"/>
             </connections>
             <point key="canvasLocation" x="140" y="20.689655172413794"/>
@@ -66,5 +72,6 @@
     </objects>
     <resources>
         <image name="ic_emojiDelete" width="24" height="18"/>
+        <image name="keyboard" catalog="system" width="128" height="78"/>
     </resources>
 </document>
